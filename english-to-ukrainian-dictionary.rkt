@@ -1,0 +1,6 @@
+((noun ("name" "ім'я")
+       ("anton" "антон"))
+ (noun ("i" "я"))
+ (adjective ("my" "моє"))
+ (verb ("is" "є")
+       ("live" "живу")))

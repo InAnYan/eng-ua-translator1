@@ -1,0 +1,1 @@
+(define (translate-from-english-to-ukrainian str))

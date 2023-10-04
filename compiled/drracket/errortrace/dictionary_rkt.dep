@@ -1,0 +1,1 @@
+("8.2" ta6le ("03792414dbdf7a28da1fe7ba36283a32dec80230" . "b9bb602daad6453a015bace34f3247d3ce3ff6b7") #"/home/ruslan/Programming/english-ukrainian-translator/util.rkt" (collects #"errortrace" #"errortrace-key.rkt") (collects #"net" #"url.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt"))
