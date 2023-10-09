@@ -1,5 +1,7 @@
 #lang racket
 
+(require racket/trace)
+
 (require "util.rkt")
 (require "lexical-analysis.rkt")
 (require "parsing.rkt")
@@ -15,4 +17,10 @@
            transform-stage
            flatten-stage) str))
 
-(translate-from-english-to-ukrainian "My name is Anton.")
+(trace translate-from-english-to-ukrainian)
+
+; (translate-from-english-to-ukrainian "My name is Anton.")
+; (translate-from-english-to-ukrainian "I have a pen.")
+; (translate-from-english-to-ukrainian "I have an apple.")
+(translate-from-english-to-ukrainian "She works in London.")
+

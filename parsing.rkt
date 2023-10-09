@@ -3,6 +3,8 @@
 (require "util.rkt")
 (require "lexical-analysis.rkt")
 
+(require (for-syntax syntax/parse))
+
 (provide define-grammar)
 (provide parse-rule)
 (provide parse-result)
