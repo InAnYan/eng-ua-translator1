@@ -1,0 +1,3 @@
+[submodule "ukrainian"]
+	path = ukrainian
+	url = https://github.com/dmklinger/ukrainian

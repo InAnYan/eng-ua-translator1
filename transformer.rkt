@@ -1,58 +1,30 @@
 #lang racket
 
-(require racket/trace)
-
-(require "dictionary.rkt")
-(require "util.rkt")
-
-(provide transform-stage)
-
-(define (transform-stage gt)
-  (transform gt))
-
-(trace transform-stage)
+(require racket/trace
+         "dictionary.rkt"
+         "util.rkt")
 
 (define (transform gt)
   (match gt
-    [(list 'S main-np (list 'VP (list 'verb (or "has" "have")) vp-np))
+    [(list 'S main-np (list 'VP (list 'verb (or "has" "have")) REST-VP ...))
      `(S (PreP
           (preposition "в") ,(transform main-np))
-         (VP (verb "є") ,(transform vp-np)))]
+         (VP (verb "є") ,@(map transform REST-VP)))]
 
-    [(list 'S np vp)
-     (list 'S (transform np) (transform vp))]
-
-    [(list 'NP det adjs noun preps)
-     (list 'NP (transform det) (transform adjs) (transform noun) (transform preps))]
+    [(list 'VP (list 'verb (or "am" "is" "are")) np pp)
+     (list 'VP (transform np) (transform pp))]
 
     [(list 'determiner determiner)
      null]
 
-    [(list 'determiner)
-     null]
-
-    [(list 'adjective* adj adjs)
-     (list 'adjective* (transform adj) (transform adjs))]
-
-    [(list 'adjective*)
-     gt]
-
-    [(list 'PreP* prep preps)
-     (list 'PreP* (transform prep) (transform preps))]
-
-    [(list 'PreP*)
-     gt]
-
-    [(list 'PreP prep np)
-     (list 'PreP (transform prep) (transform np))]
-
-    [(list 'VP (list 'verb (or "am" "is" "are")) np)
-     (list 'VP (transform np))]
-
-    [(list 'VP verb np-or-prep)
-     (list 'VP (transform verb) (transform np-or-prep))]
+    [(list (or 'S 'NP 'adjective* 'PP* 'PP 'VP) MEMBERS ...)
+     (cons (first gt) (map transform MEMBERS))]
 
     [(list (or 'noun 'verb 'adjective 'determiner 'preposition) word)
      (list (first gt) (translate-word-from-eng-to-ukr word (first gt)))]
 
     [_ gt]))
+
+(trace transform)
+
+(provide transform)
