@@ -2,7 +2,7 @@
 
 Very simple translator. Barely handles Present Continious.
 
-Currently it doesn't because of unimplemented dictionary interface.
+Currently it doesn't work because of unimplemented dictionary interface.
 The declension part is also undone.
 
 Thinking about writing it in Python and to make it much simpler.
