@@ -1,14 +1,14 @@
 # Rule based English to Ukrainian translator
 
-Very simple translator. Barely handles Present Continious.
+Very simple translator. Barely handles Present Simple.
 
 Currently it doesn't work because of unimplemented dictionary interface.
 The declension part is also undone.
 
-Thinking about writing it in Python and to make it much simpler.
+Thinking about writing it in Python and making it much simpler.
 
 ## Dependencies
-- `amb-parser` (it's my package actually).
+- `amb-parser` (my package, actually).
 
 ## Algorithm:
 1. Parse English sentence into parse tree (`parsing.rkt`, `english-grammar.rkt`, `dictionary.rkt`):
